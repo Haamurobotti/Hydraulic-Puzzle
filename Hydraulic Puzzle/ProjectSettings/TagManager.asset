@@ -41,3 +41,9 @@ TagManager:
   - name: Default
     uniqueID: 0
     locked: 0
+  - name: BG
+    uniqueID: 1490212921
+    locked: 0
+  - name: Element
+    uniqueID: 1938939425
+    locked: 0
