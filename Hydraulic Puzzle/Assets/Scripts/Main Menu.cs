@@ -40,7 +40,7 @@ public class MainMenu : MonoBehaviour
     public void LoadLevel2()
     {
         
-        if (points >= 50)
+        if (points >= 0)
         {
             SceneManager.LoadScene("Level 2");
         }
