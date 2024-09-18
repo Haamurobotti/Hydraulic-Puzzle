@@ -16,12 +16,15 @@ public class Object : MonoBehaviour
 
     private AudioSource audioSource;
     public AudioClip clip;
+
+   private Points points;
     // Start is called before the first frame update
     void Start()
     {
         animator = GetComponent<Animator>();
         rigidbody2D= GetComponent<Rigidbody2D>();
         audioSource = GetComponent<AudioSource>();
+        points = GameObject.Find("PointManager").GetComponent<Points>();
     }
 
     // Update is called once per frame
@@ -45,6 +48,7 @@ public class Object : MonoBehaviour
 
     private void TimerEnded()
     {
+        points.AddPoints();
         ParticleSystem particleSystem = Instantiate(DestroyEffect, rigidbody2D.position, Quaternion.identity);
         Destroy(gameObject);
     }
