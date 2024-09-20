@@ -18,6 +18,8 @@ public class Object : MonoBehaviour
     public AudioClip clip;
 
    private Points points;
+    private HydraulicCotroller h;
+    public Object(HydraulicCotroller h) { this.h = h; }
     // Start is called before the first frame update
     void Start()
     {
@@ -73,7 +75,14 @@ public class Object : MonoBehaviour
             {
                 animator.SetBool("Idle", true);
             }
-
+            if (this.tag == "Nokia")
+            {
+                
+                Debug.Log("Osuit nokiaan");
+                Destroy(other.gameObject);
+                h.Break();
+                ParticleSystem particleSystem = Instantiate(DestroyEffect, rigidbody2D.position, Quaternion.identity);
+            }
             
         }
         

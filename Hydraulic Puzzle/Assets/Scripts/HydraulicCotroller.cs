@@ -7,7 +7,7 @@ using UnityEngine.EventSystems;
 public class HydraulicCotroller : MonoBehaviour
 {
     Animator animator;
-    
+    public bool broken = false;
     // Start is called before the first frame update
     void Start()
     {
@@ -20,9 +20,13 @@ public class HydraulicCotroller : MonoBehaviour
     {
         crushing();
     }
+    public void Break()
+    {
+        broken= true;
+    }
     void crushing()
     {
-        if (Input.GetKeyUp("s"))
+        if (Input.GetKeyUp("s") && broken == false)
         {
             animator.SetTrigger("Crushing");
             foreach (Transform child in transform)
@@ -30,7 +34,7 @@ public class HydraulicCotroller : MonoBehaviour
                 child.gameObject.SetActive(false);
             }
         }
-        else if (Input.GetKeyDown("s"))
+        else if (Input.GetKeyDown("s") && broken == false)
         {
             animator.SetTrigger("Crushing");
             foreach (Transform child in transform)
